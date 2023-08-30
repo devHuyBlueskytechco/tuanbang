@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="optimizespeed" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Optimize Image</label>
+            <tab>blueskytechco</tab>
+            <resource>Blueskytechco_OptimizeSpeed::config_optimizespeed</resource>
+            <group id="image_webp" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Optimize Image WebP</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="quality" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quality(1 -100 )</label>
+                    <comment>If you use high value (90-100) you will get the best quality but also these images will have bigger size Don't forget to clean WebP cache after change value of quality!</comment>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+				<field id="file_types" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allowed file types</label>
+                    <comment><![CDATA[List file types converted WebP</br>
+                        E.g.: PNG, JPG, JPEG]]></comment>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
